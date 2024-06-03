@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Work Hours Tracker</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Work Hours Tracker</h1>
+        <div class="form-group">
+            <label for="hourlyWage">Enter your hourly wage:</label>
+            <input type="number" id="hourlyWage" placeholder="Hourly Wage">
+        </div>
+        <div class="form-group">
+            <button id="punchInButton" onclick="punchIn()">Punch In</button>
+            <button id="punchOutButton" onclick="punchOut()">Punch Out</button>
+        </div>
+        <div class="summary">
+            <h2>Summary</h2>
+            <p>Total Hours: <span id="totalHours">0</span></p>
+            <p>Earnings: $<span id="earnings">0.00</span></p>
+        </div>
+        <div class="recent">
+            <h2>Recent Punch Details</h2>
+            <p>Punch In: <span id="recentPunchIn">N/A</span></p>
+            <p>Punch Out: <span id="recentPunchOut">N/A</span></p>
+            <p>Hours Worked: <span id="recentHoursWorked">0</span></p>
+            <p>Earnings: $<span id="recentEarnings">0.00</span></p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+       
+</html>
