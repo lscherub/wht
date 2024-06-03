@@ -1,6 +1,7 @@
 let punchInTime = null;
 let totalHours = 0;
 let earnings = 0;
+let shifts = JSON.parse(localStorage.getItem('shifts')) || [];
 
 function punchIn() {
     punchInTime = new Date();
@@ -17,6 +18,15 @@ function punchOut() {
     totalHours += hoursWorked;
     const earned = hoursWorked * hourlyWage;
     earnings += earned;
+
+    const shift = {
+        punchInTime: punchInTime,
+        punchOutTime: punchOutTime,
+        hoursWorked: hoursWorked,
+        earnings: earned
+    };
+    shifts.push(shift);
+    localStorage.setItem('shifts', JSON.stringify(shifts));
 
     document.getElementById('totalHours').innerText = totalHours.toFixed(2);
     document.getElementById('earnings').innerText = earnings.toFixed(2);
@@ -41,6 +51,5 @@ document.addEventListener('DOMContentLoaded', (event) => {
     } else {
         document.getElementById('punchInButton').disabled = false;
         document.getElementById('punchOutButton').disabled = true;
-  
     }
 });
